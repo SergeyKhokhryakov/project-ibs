@@ -1,0 +1,86 @@
+plugins {
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group 'guru.qa'
+version '1.0'
+
+def allureVersion = "2.21.0"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'net.datafaker:datafaker:1.8.1'
+    implementation("commons-io:commons-io:2.6")
+    implementation("io.qameta.allure:allure-java-commons:2.14.0")
+    implementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
+    implementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
+    implementation("org.junit.jupiter:junit-jupiter-params:5.7.2")
+
+    testImplementation (
+            'com.codeborne:selenide:6.19.1',  // 6.16.0 5.22.0 6.12.3 // 6.19.1 - работает с локальным браузером 120 версии
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.junit.jupiter:junit-jupiter:5.9.3', // 5.9.3
+            'org.assertj:assertj-core:3.25.1',
+            'org.aeonbits.owner:owner:1.0.12',
+            'org.slf4j:slf4j-simple:2.0.7'  // 2.0.7
+    )
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task ui_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("web")
+    }
+}
+
+task smoke_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+}
+
+task tags_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("tags")
+    }
+}
+
+task positive_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("positive")
+    }
+}
+
+
