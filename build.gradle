@@ -77,7 +77,7 @@ task tags_tests(type: Test) {
     }
 }
 
-task vacan_tests(type: Test) {
+task vacancies_tests(type: Test) {
     useJUnitPlatform {
         includeTags("vacancies")
     }
