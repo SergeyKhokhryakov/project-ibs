@@ -16,7 +16,7 @@ import static io.qameta.allure.Allure.step;
 public class NavigationTests extends TestBaseRemote {
 
   @Test
-  @Story("Навигация по сайту https://ibs.ru/")
+  @Story("Навигация по сайту https://ibs.ru/ - рубрики")
   @Description("Проверка перечня рубрик в разделе Меню (Burger) на главной странице")
   @Severity(SeverityLevel.CRITICAL)
   @Tags({@Tag("menu"), @Tag("positive"), @Tag("smoke")})
@@ -29,7 +29,7 @@ public class NavigationTests extends TestBaseRemote {
   }
 
   @Test
-  @Story("Навигация по сайту https://ibs.ru/")
+  @Story("Навигация по сайту https://ibs.ru/ - подрубрики")
   @Description("В каждой рубрике проверить перечень подрубрик, а также их ссылки (внутренняя/внешняя)")
   @Severity(SeverityLevel.CRITICAL)
   @Tags({@Tag("menu"), @Tag("positive"), @Tag("smoke")})
