@@ -14,9 +14,7 @@ import ru.ostrovcy.ibs.base.TestBaseRemote;
 public class VacanciesTests extends TestBaseRemote {
 
   @Test
-//  @TM4J("HOMEWORK")
   @Story("Поиск вакансий")
-//  @JiraIssues({@JiraIssue("HOMEWORK-1070")})
   @Description("Поиск вакансии по фильтру: Опыт(С опытом), Формат работы(Удаленно), Направление(Тестирование), Город(), Технологии(Java/Selenium)")
   @Severity(SeverityLevel.CRITICAL)
   @Tags({@Tag("vacancies"), @Tag("positive")})

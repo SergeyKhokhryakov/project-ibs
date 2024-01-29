@@ -2,6 +2,7 @@ package ru.ostrovcy.ibs.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import ru.ostrovcy.ibs.base.TestBaseRemote;
 
 import java.util.*;
 
@@ -35,63 +36,6 @@ public class NavigationPage {
           "О компании");
 
   private List<Map<String, Boolean>> subRubricsOracle = new ArrayList<>();
-//          = List.of(
-//          Map.of(
-//                  "Управление программами", false,
-//                  "Бизнес-консалтинг", true,
-//                  "Аналитические решения", true,
-//                  "Бизнес-решения", true,
-//                  "Разработка", true,
-//                  "Тестирование", true,
-//                  "Аутсорсинг ИТ-процессов", true,
-//                  "Кибербезопасность", false,
-//                  "ESG и устойчивое развитие", false
-//          ),
-//          Map.of(
-//                  "Агропромышленность", false,
-//                  "Газовая индустрия", false,
-//                  "Государственные программы", false,
-//                  "Металлургия", false,
-//                  "Нефть и химия", false,
-//                  "Промышленность и транспорт", false,
-//                  "Телеком", false,
-//                  "ТНП и ритейл", false,
-//                  "Финансовые институты", false,
-//                  "Энергетика и ЖКХ", false
-//                  ),
-//          Map.of(
-//                  "Платформа Планета", true,
-//                  "IBS НСИ", true,
-//                  "IBS EAM", true,
-//                  "Комплексная система весогабаритного контроля", false,
-//                  "GlobalCareer — IT Рекрутинговое агентство", true,
-//                  "ТехноДром — Технологии создания команд", true,
-//                  "Реестр российского ПО и свидетельства в Роспатент", false
-//          ),
-//          Map.of(
-//                  "Карьера в IBS", false,
-//                  "Вакансии", false,
-//                  "Стажировки", true,
-//                  "IBS Training Center", true,
-//                  "Как стать частью команды IBS", false,
-//                  "Полезные материалы для соискателей", false,
-//                  "Наша жизнь", false
-//          ),
-//          Map.of(
-//                  "Новости компании", false,
-//                  "События", false,
-//                  "Материалы для СМИ", false
-//          ),
-//          Map.of(
-//                  "О компании", false,
-//                  "Менеджмент", false,
-//                  "История IBS", false,
-//                  "Признание", false,
-//                  "Партнёры", false,
-//                  "Раскрытие информации", false,
-//                  "Контакты", false
-//          )
-//  );
 
   Map<String, Boolean> officesOfIBS = Map.of(
           "Москва", false,
@@ -275,6 +219,7 @@ public class NavigationPage {
   @Step("Открыть страницу \"Вакансии\"")
   public VacanciesPage openVacanciesPage(){
     $(byTagAndText(locatorSubRubricsXPath, "Вакансии")).click();
+    TestBaseRemote.acceptTerms();
     return vacanciesPage;
   }
 

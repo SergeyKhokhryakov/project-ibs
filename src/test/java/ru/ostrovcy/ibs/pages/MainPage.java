@@ -60,13 +60,5 @@ public final class MainPage {
     $(locator).click();
   }
 
-  @Step("Проверить заголовок страницы")
-  public static void verifyText(String locator, String textExpected) {
-    $(locator).shouldBe(visible).shouldHave(text(textExpected));
-  }
-
-  public void goHome(){
-    $(locatorHome).click();
-  }
 }
 

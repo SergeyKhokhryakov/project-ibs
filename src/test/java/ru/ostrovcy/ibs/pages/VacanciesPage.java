@@ -83,7 +83,7 @@ public class VacanciesPage {
   public VacanciesPage searchVacanciesByFilter() {
     filterCount = 0;
     // Принять условия
-    $(locatorCookies).click();
+//    $(locatorCookies).click();
     step("Установить фильтр", () -> {
       setUpFilter();
     });
@@ -155,8 +155,6 @@ public class VacanciesPage {
 
   @Step("Поочередно установить каждый тег и проверить результат")
   public VacanciesPage setUpTagsAndVerifyResults() {
-    // Принять условия
-    $(locatorCookies).click();
 
     filterCount = 0;
     step("Установить тег \"" + atOfficeTag +"\"", () -> {

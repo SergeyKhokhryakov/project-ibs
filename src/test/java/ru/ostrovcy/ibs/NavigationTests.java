@@ -16,9 +16,7 @@ import static io.qameta.allure.Allure.step;
 public class NavigationTests extends TestBaseRemote {
 
   @Test
-//  @TM4J("HOMEWORK")
   @Story("Навигация по сайту https://ibs.ru/")
-//  @JiraIssues({@JiraIssue("HOMEWORK-1070")})
   @Description("Проверка перечня рубрик в разделе Меню (Burger) на главной странице")
   @Severity(SeverityLevel.CRITICAL)
   @Tags({@Tag("menu"), @Tag("positive"), @Tag("smoke")})
@@ -31,12 +29,10 @@ public class NavigationTests extends TestBaseRemote {
   }
 
   @Test
-//  @TM4J("HOMEWORK")
   @Story("Навигация по сайту https://ibs.ru/")
-//  @JiraIssues({@JiraIssue("HOMEWORK-1070")})
   @Description("В каждой рубрике проверить перечень подрубрик, а также их ссылки (внутренняя/внешняя)")
   @Severity(SeverityLevel.CRITICAL)
-  @Tags({@Tag("menu"), @Tag("service"), @Tag("positive"), @Tag("smoke")})
+  @Tags({@Tag("menu"), @Tag("positive"), @Tag("smoke")})
   public void subRubricsTest(){
     mainPage.openNavigationPage()
             .verifySubRubrics()
