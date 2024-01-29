@@ -59,9 +59,9 @@ tasks.withType(Test) {
     }
 }
 
-task ui_test(type: Test) {
+task menu_test(type: Test) {
     useJUnitPlatform {
-        includeTags("web")
+        includeTags("menu")
     }
 }
 
@@ -74,6 +74,12 @@ task smoke_tests(type: Test) {
 task tags_tests(type: Test) {
     useJUnitPlatform {
         includeTags("tags")
+    }
+}
+
+task vacan_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("vacancies")
     }
 }
 
