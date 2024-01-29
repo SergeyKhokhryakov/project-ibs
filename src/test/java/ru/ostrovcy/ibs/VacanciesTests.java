@@ -32,11 +32,13 @@ public class VacanciesTests extends TestBaseRemote {
 
   @Test
   @Story("Установка фильтра по тегам")
-  @Description("Проверка функционирования тегов фильтра")
+  @Description("Проверка функционирования тегов фильтра (за исключением \"мобильная разработка\" - фича не реализована, или баг?, уточнить у аналитика/разработки)")
   @Severity(SeverityLevel.NORMAL)
   @Tags({@Tag("tags"), @Tag("positive")})
   public void tagsFilterTest() {
     mainPage.getVacanciesPage()
-            .directlyOpenPage();
+            .directlyOpenPage()
+            .setUpTagsAndVerifyResults()
+            .goToMainPage();
   }
 }
